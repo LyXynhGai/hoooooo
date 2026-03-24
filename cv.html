@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sơ với chả yếu lí lịch</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="cv.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f3e8ff 0%, #fae8e8 100%);
+        }
+
+        .name {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .resume {
+            max-width: 1100px;
+            margin: 40px auto;
+            box-shadow: 0 35px 70px -15px rgb(236 72 153 / 0.4);
+            background: white;
+            overflow: hidden;
+            border-radius: 28px;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .resume:hover {
+            transform: scale(1.02) rotate(0.5deg);
+        }
+
+        .sidebar {
+            background: linear-gradient(135deg, #7e22ce 0%, #db2777 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+            animation: shine 8s linear infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(300%);
+            }
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(90deg, #db2777, #c026d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(to right, #ec4899, #a855f7);
+            bottom: -6px;
+            left: 0;
+            border-radius: 9999px;
+        }
+
+        .skill-badge {
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 10px 20px -5px rgb(236 72 153 / 0.3);
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-8px) scale(1.08) rotate(2deg);
+            box-shadow: 0 20px 30px -10px rgb(192 38 211 / 0.5);
+        }
+
+        .photo-frame {
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 40px rgba(236, 72, 153, 0.6),
+                0 0 80px rgba(192, 38, 211, 0.4);
+            transition: all 0.5s ease;
+        }
+
+        .photo-frame:hover {
+            box-shadow: 0 0 60px rgba(236, 72, 153, 0.9),
+                0 0 120px rgba(192, 38, 211, 0.7);
+            transform: scale(1.05);
+        }
+
+        .project-card {
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 40px -15px rgb(236 72 153 / 0.5);
+        }
+
+        @media print {
+            .resume {
+                box-shadow: none;
+                margin: 0;
+                transform: none;
+            }
+
+            .no-print {
+                display: none;
+            }
+
+            .sidebar::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="py-8">
+    <div class="resume grid grid-cols-12 overflow-hidden">
+        <!-- Sidebar siêu wow -->
+        <div class="sidebar col-span-12 md:col-span-4 p-10 flex flex-col relative">
+            <!-- Ảnh với hiệu ứng glow -->
+            <div class="flex justify-center mb-8">
+                <div class="photo-frame w-56 h-56 rounded-3xl overflow-hidden">
+                    <img src="aibt1.jpg" alt="Thái Ly" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <!-- Tên + chức danh -->
+            <div class="text-center mb-10">
+                <h1 class="name text-5xl font-bold tracking-tighter text-white drop-shadow-lg">Thái Ly</h1>
+                <p class="text-2xl text-pink-200 mt-2 font-medium">Sinh viên IT - Fullstack Dreamer ✨</p>
+                <div class="h-px bg-gradient-to-r from-transparent via-white/50 to-transparent my-6 w-32 mx-auto"></div>
+            </div>
+
+            <!-- Thông tin liên hệ -->
+            <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-11 h-11 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-inner">
+                        📍</div>
+                    <div>
+                        <p class="text-xs opacity-75 tracking-widest">ĐỊA CHỈ</p>
+                        <p class="font-medium text-lg">Phường Dĩ An, TP. Hồ Chí Minh</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-11 h-11 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-inner">
+                        📞</div>
+                    <div>
+                        <p class="text-xs opacity-75 tracking-widest">ĐIỆN THOẠI</p>
+                        <p class="font-medium text-lg">0123456789</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-11 h-11 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-inner">
+                        ✉️</div>
+                    <div>
+                        <p class="text-xs opacity-75 tracking-widest">EMAIL</p>
+                        <p class="font-medium text-lg">lnguyn018@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-11 h-11 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-inner">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs opacity-75 tracking-widest">GITHUB</p>
+                        <a href="https://github.com/LyXynhGai" class="font-medium hover:text-pink-200 transition"
+                            target="_blank">github.com/LyXynhGai</a>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                    <div
+                        class="w-11 h-11 bg-white/20 backdrop-blur-xl rounded-2xl flex items-center justify-center text-2xl flex-shrink-0 shadow-inner">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs opacity-75 tracking-widest">LINKEDIN</p>
+                        <a href="#" class="font-medium hover:text-pink-200 transition">ko có :))</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kỹ năng nổi bật -->
+            <div class="mt-auto pt-12">
+                <p class="uppercase text-xs tracking-[3px] text-pink-200 mb-5">KỸ NĂNG 🔥</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <!-- reaact , python , node.js, ai & ml, c++ , java, asp.net (mvc) -->
+
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                        React.js</div>
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                        Python</div>
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                        Node.js</div>
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                        AI &amp; ML</div>
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                        C++</div>
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                        Java</div>
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                        ASP.NET</div>
+                    <div
+                        class="skill-badge bg-white/20 backdrop-blur-xl text-white text-center py-4 rounded-3xl font-semibold text-base shadow-xl">
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Ngôn ngữ -->
+            <div class="mt-10">
+                <p class="uppercase text-xs tracking-widest text-pink-200 mb-4">NGOẠI NGỮ</p>
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Tiếng Anh</span>
+                            <span class="font-bold text-pink-200">IELTS 4.5</span>
+                        </div>
+                        <div class="h-3 bg-white/20 rounded-3xl overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-pink-300 to-purple-300 w-[50%] rounded-3xl"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="font-medium">Tiếng Việt</span>
+                            <span class="font-bold text-pink-200">Ngôn ngữ mẹ đẻ</span>
+                        </div>
+                        <div class="h-3 bg-white/20 rounded-3xl overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-pink-300 to-purple-300 w-[85%] rounded-3xl"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nội dung chính -->
+        <div class="col-span-12 md:col-span-8 bg-white p-10">
+            <!-- Mục tiêu -->
+            <div class="mb-12">
+                <h2 class="section-title text-4xl font-bold mb-6">MỤC TIÊU NGHỀ NGHIỆP ✨</h2>
+                <p class="text-xl leading-relaxed text-gray-700">
+                    Mục tiêu của tôi là học hỏi thêm nhiều kiến thức và kinh nghiệm trong lĩnh vực công nghệ thông tin,
+                    từng bước nâng cao kỹ năng lập trình và khả năng làm việc trong các dự án thực tế. Trong tương lai,
+                    tôi mong muốn có cơ hội làm việc và phát triển bản thân trong môi trường công nghệ chuyên nghiệp,
+                    hướng tới các tập đoàn công nghệ lớn như Microsoft, Nvidia hay Intel.
+                </p>
+            </div>
+
+            <!-- Học vấn -->
+            <div class="mb-12">
+                <h2 class="section-title text-4xl font-bold mb-8">HỌC VẤN</h2>
+                <div class="space-y-10">
+                    <div class="flex gap-8">
+                        <div class="text-right w-32">
+                            <p class="text-pink-600 font-bold text-lg">2025 - 2030</p>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-bold text-2xl">Kỹ sư Công nghệ Thông tin</p>
+                            <p class="text-lg text-purple-700">Đại học Quốc gia TP HCM <br>
+                                Trường Đại học Công nghệ Thông tin</p>
+                            <p class="mt-2 text-gray-600"> Đang theo học, GPA: 3.5/4.0</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DỰ ÁN -->
+            <div class="mb-12">
+                <h2 class="section-title text-4xl font-bold mb-8">DỰ ÁN </h2>
+                <div class="space-y-8">
+
+                    <!-- Dự án 1 -->
+                    <div
+                        class="project-card p-8 bg-gradient-to-r from-pink-50 to-purple-50 rounded-3xl border border-pink-100">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-2xl font-bold">E-Commerce AI Shop</p>
+                                <p class="text-purple-600 text-sm">React + Node + MongoDB • 2025</p>
+                            </div>
+                            <span class="text-5xl">🛍️</span>
+                        </div>
+                        <ul class="mt-6 pl-6 space-y-2 text-gray-700">
+                            <li class="flex items-center gap-3">✓ Thanh toán VNPay + gợi ý sản phẩm bằng AI</li>
+                            <li class="flex items-center gap-3">✓ Deploy Vercel + 1k+ lượt truy cập thử nghiệm</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dự án 2 -->
+                    <div
+                        class="project-card p-8 bg-gradient-to-r from-pink-50 to-purple-50 rounded-3xl border border-pink-100">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-2xl font-bold">AI Face Filter Web</p>
+                                <p class="text-purple-600 text-sm">TensorFlow.js • 2024</p>
+                            </div>
+                            <span class="text-5xl">📸</span>
+                        </div>
+                        <ul class="mt-6 pl-6 space-y-2 text-gray-700">
+                            <li class="flex items-center gap-3">✓ Nhận diện cảm xúc realtime trên trình duyệt</li>
+                            <li class="flex items-center gap-3">✓ Đạt giải 1 Hackathon HCMUT</li>
+                        </ul>
+                    </div>
+
+                    <!-- Dự án 3 mới: Web món ăn -->
+                    <div
+                        class="project-card p-8 bg-gradient-to-r from-pink-50 to-purple-50 rounded-3xl border border-pink-100">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <p class="text-2xl font-bold">RecipeVerse - Web Món Ăn Việt Nam</p>
+                                <p class="text-purple-600 text-sm">React + Firebase + Tailwind • 2025</p>
+                            </div>
+                            <span class="text-5xl">🍜</span>
+                        </div>
+                        <ul class="mt-6 pl-6 space-y-2 text-gray-700">
+                            <li class="flex items-center gap-3">✓ Hơn 200 công thức món ăn Việt Nam (có tìm kiếm, lọc
+                                theo nguyên liệu)</li>
+                            <li class="flex items-center gap-3">✓ Chức năng lưu công thức yêu thích + chia sẻ lên
+                                Facebook</li>
+                            <li class="flex items-center gap-3">✓ Giao diện đẹp, responsive, deploy miễn phí trên Vercel
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Lưu ý (thêm theo yêu cầu của bạn) -->
+            <div
+                class="bg-gradient-to-r from-pink-100 to-purple-100 border border-pink-200 rounded-3xl p-6 text-center">
+                <p class="text-sm text-purple-700 font-medium">
+                    💡 <strong>Lưu ý:</strong> Tất cả dự án trên mình đang thực hiện và chưa hoàn thành
+                    (đang trong giai đoạn phát triển), nên nếu bạn muốn xem demo hay kiểm chứng thì qua bên khác nhen!
+                    <span class="text-2xl">😊</span>
+                </p>
+            </div>
+
+            <!-- Footer cute -->
+            <div class="text-center text-xs text-purple-400 mt-12">
+                Hở đây là CV của mình, nếu bạn đang đọc đến dòng này thì... chúc bạn một ngày tốt lành! <span class="text-2xl">🌸</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nút in PDF siêu xinh -->
+    <div class="max-w-3xl mx-auto text-center mt-12 no-print">
+        <button onclick="window.print()"
+            class="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-12 py-5 rounded-3xl font-bold text-lg flex items-center gap-4 mx-auto hover:scale-110 active:scale-95 transition-all shadow-2xl shadow-pink-500/50">
+            <i class="fas fa-print text-2xl"></i>
+            Không cần ngó tới đâu!
+        </button>
+    </div>
+
+    <script>
+        tailwind.config = { content: [] }
+    </script>
+</body>
+
+</html>
